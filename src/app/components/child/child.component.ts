@@ -37,7 +37,7 @@ export class ChildComponent implements OnInit {
   // ეს ფუნქციები:
   // 1. true მნიშვნელობას მიანიჭებს ამავე კლასის "isBtnClicked" boolean ტიპის ცვლადს, რა დროსაც
   // HTML button tag-ს ("Agree"-საც და "Disagree"-საც) მიენიჭება ატრიბუტი - Disabled
-  // 2. აამოქმედებს შესაბამის EventEmitter-ს (რომელსაც უსმენს მშობელი კომპონენტი).
+  // 2. აამოქმედებს (დაა-Emit-ებს) შესაბამის EventEmitter-ს (რომელსაც უსმენს მშობელი კომპონენტი).
   agreeClick() {
     this.isBtnClicked = true;
     this.isAgreeClicked.emit();
