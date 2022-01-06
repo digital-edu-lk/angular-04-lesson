@@ -1,0 +1,8 @@
+<h2>Should mankind colonize the Universe?</h2>
+<h3>Agree: {{agreedSumNum}},Disagree: {{disagreedSumNum}}</h3>
+<app-child
+*ngFor="let user of users"
+[user]="user.name"
+(isAgreeClicked)="agree()"
+(isDisagreeClicked)="disagree()">
+</app-child>
