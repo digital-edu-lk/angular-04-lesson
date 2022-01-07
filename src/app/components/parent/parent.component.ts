@@ -36,18 +36,18 @@ export class ParentComponent implements OnInit {
     this.getUsersTotalNumber()
   }
 
-  agree() {
+  agree(): void {
     this.agreedTotalNumber++;
     this.isUsersEmpty();
   }
 
-  disagree() {
+  disagree(): void {
     this.disagreedTotalNumber++;
     this.isUsersEmpty();
   }
 
   getUsersTotalNumber(): void {
-    for (let item of this.users) {
+    for (let user of this.users) {
       this.usersTotalNumber++;
     }
   }
