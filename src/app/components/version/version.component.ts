@@ -72,7 +72,6 @@ export class VersionComponent implements OnInit {
       }
     }
     this.versions.push(nextMinor);
-    console.log(this.versions)
   }
 
  majorChanged(): void {
