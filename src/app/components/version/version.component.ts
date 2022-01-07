@@ -83,7 +83,7 @@ export class VersionComponent implements OnInit {
     let lastVersionCurrentMajor: number = this.getlastVersionCurrentMajor();
     let nextVersionCurrentMajor: number = 1 + this.getlastVersionCurrentMajor();
 
-    let nextMinor: Version = {
+    let nextMajor: Version = {
       id: nextVersionId,
       type: nextVersionType,
       data: {
@@ -93,7 +93,7 @@ export class VersionComponent implements OnInit {
         currentMajor: nextVersionCurrentMajor
       }
     }
-    this.versions.push(nextMinor);
+    this.versions.push(nextMajor);
   }
 
   getlastVersionId(this: any): number {
