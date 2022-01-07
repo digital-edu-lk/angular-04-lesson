@@ -33,7 +33,7 @@ export class ParentComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.getUsersTotalNumber()
+    this.getUsersTotalNumber();
   }
 
   agree(): void {
