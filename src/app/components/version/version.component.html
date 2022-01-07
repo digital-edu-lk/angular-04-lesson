@@ -4,11 +4,7 @@
 <h3>Version {{currentMajor + '.' + currentMinor}}</h3>
 <h4>Change log:</h4>
 <ul>
-    <li>
-        Initial value of major set to {{primaryVersion.primaryMajor}}, Initial value of minor set to {{primaryVersion.primaryMinor}}
+    <li *ngFor="let next of versions">
+        <app-sub-version [next]="next"></app-sub-version>
     </li>
-    <app-sub-version
-    *ngFor="let next of versions"
-    [next]="next">
-    </app-sub-version>
 </ul>

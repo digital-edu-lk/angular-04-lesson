@@ -21,7 +21,6 @@ export class VersionComponent implements OnInit {
     }
   ]
 
-  primaryVersion!: any;
   next!: Version;
   currentMajor: number = this.versions[this.versions.length-1].data.currentMajor;
   currentMinor: number = this.versions[this.versions.length-1].data.currentMinor;
@@ -29,28 +28,11 @@ export class VersionComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.setPrimaryVersion();
   }
 
   ngDoCheck(): void {
     this.currentMajor = this.versions[this.versions.length-1].data.currentMajor;
     this.currentMinor = this.versions[this.versions.length-1].data.currentMinor;
-  }
-
-  setPrimaryVersion(): void {
-    for (let version of this.versions) {
-      if (version.type == 'primary') {
-        this.primaryVersion = {
-          primaryMinor: version.data.currentMinor,
-          primaryMajor: version.data.currentMajor
-        }
-      } else {
-        this.primaryVersion = {
-          primaryMinor: 0,
-          primaryMajor: 0
-        }
-      }
-    }
   }
 
   minorChanged(): void {
