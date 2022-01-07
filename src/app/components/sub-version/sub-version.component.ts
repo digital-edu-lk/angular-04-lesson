@@ -7,21 +7,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SubVersionComponent implements OnInit {
 
-  @Input() next!: any;
+  @Input() version!: any;
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.next);    
+    console.log(this.version);    
   }
   
   newVersion(): string {
-    if (this.next.type == 'primary') {
-      return 'Initial value of major set to ' + this.next.data.currentMajor + ', Initial value of minor set to ' + this.next.data.currentMinor;
-    } else if (this.next.type == 'nextMinor') {
-      return 'minor changed from ' + this.next.data.previousMinor + ' to ' + this.next.data.currentMinor;
-    } else if (this.next.type == 'nextMajor') {
-      return 'major changed from ' + this.next.data.previousMajor + ' to ' + this.next.data.currentMajor;
+    if (this.version.type == 'primary') {
+      return 'Initial value of major set to ' + this.version.data.currentMajor + ', Initial value of minor set to ' + this.version.data.currentMinor;
+    } else if (this.version.type == 'nextMinor') {
+      return 'minor changed from ' + this.version.data.previousMinor + ' to ' + this.version.data.currentMinor;
+    } else if (this.version.type == 'nextMajor') {
+      return 'major changed from ' + this.version.data.previousMajor + ' to ' + this.version.data.currentMajor;
     } else {
       return 'Error!';
     }
