@@ -32,7 +32,7 @@ export class VersionComponent implements OnInit {
     this.setPrimaryVersion();
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     this.currentMajor = this.versions[this.versions.length-1].data.currentMajor;
     this.currentMinor = this.versions[this.versions.length-1].data.currentMinor;
   }
