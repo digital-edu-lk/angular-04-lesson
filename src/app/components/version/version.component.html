@@ -8,7 +8,7 @@
         Initial value of major set to {{primaryVersion.primaryMajor}}, Initial value of minor set to {{primaryVersion.primaryMinor}}
     </li>
     <app-sub-version
-    *ngFor="let nextVersion of versions"
-    [next]="nextVersion">
+    *ngFor="let next of versions"
+    [next]="next">
     </app-sub-version>
 </ul>

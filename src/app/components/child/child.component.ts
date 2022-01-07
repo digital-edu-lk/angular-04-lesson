@@ -19,16 +19,16 @@ export class ChildComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.userName = this.user;
   }
 
-  agreeClick() {
+  agreeClick(): void {
     this.isBtnClicked = true;
     this.isAgreeClicked.emit();
   }
 
-  disagreeClick() {
+  disagreeClick(): void {
     this.isBtnClicked = true;
     this.isDisagreeClicked.emit();
   }

@@ -13,7 +13,4 @@ export class SubVersionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  ngOnChanges() {
-  }
 }
