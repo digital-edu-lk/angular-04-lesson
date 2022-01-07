@@ -1,0 +1,14 @@
+<h2>Source code version</h2>
+<button (click)="minorChanged()">New minor version</button>
+<button (click)="majorChanged()">New major version</button>
+<h3>Version {{currentMajor + '.' + currentMinor}}</h3>
+<h4>Change log:</h4>
+<ul>
+    <li>
+        Initial value of major set to {{primaryVersion.primaryMajor}}, Initial value of minor set to {{primaryVersion.primaryMinor}}
+    </li>
+    <app-sub-version
+    *ngFor="let nextVersion of versions"
+    [next]="nextVersion">
+    </app-sub-version>
+</ul>

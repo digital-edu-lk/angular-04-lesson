@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-// ვაიმპორტებთ User ინტერფეისს.
 import { User } from '../../user';
 
 @Component({
@@ -10,44 +9,60 @@ import { User } from '../../user';
 })
 export class ParentComponent implements OnInit {
 
-  // ვქმნით User ტიპის ობიექტების მასივს, დინამიურად შექმნილი შვილი კომპონენტების view-ში გასატანად.
   users: User[] = [
     {
+      id: 1,
       name: 'Mr. IQ',
     },
     {
+      id: 2,
       name: 'Ms. Universe',
     },
     {
+      id: 3,
       name: 'Bombasto'
     }
   ];
 
-  // Define-ს ვუკეთებთ ლოკალურ (სხვა კომპონენტ(ებ)ში არა-გადასაცემ) ცვლადებს.
-  agreedSumNum: number = 0;
-  disagreedSumNum: number = 0;
+  @Output() submittingDone = new EventEmitter();
 
-  constructor() { }
+  usersTotalNumber: number = 0;
+  agreedTotalNumber: number = 0;
+  disagreedTotalNumber: number = 0;
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.getUsersTotalNumber()
   }
 
-  // ვქმნით ფუნქციებს, რომლებიც გამოძახებული იქნება შვილ კომპონენტში 
-  // @Output() დეკორატორით შექმნილი EventEmitter-ების
-  // მოსმენისას (Event Binding-ის მეშვეობით),
-  // ამ EventEmitter-ების ამოქმედების (ანუ, შვილი კომპონენტიდან და-Emit-ების) შემთხვევაში.
-  
-  // "agree()" ფუნქცია:
-  // 1. 1-ით გაზრდის (increment-ს გაუკეთებს) ამავე კლასის "agreedSumNum" ცვლადის მნიშვნელობას,
-  // რომელიც, interpolation-ის {{}} მეშვეობით აისახება view-ში.
   agree() {
-    this.agreedSumNum++;
+    this.agreedTotalNumber++;
+    this.isUsersEmpty();
   }
 
-  // "disagree()" ფუნქცია:
-  // 1. 1-ით გაზრდის (increment-ს გაუკეთებს) ამავე კლასის "disagreedSumNum" ცვლადის მნიშვნელობას,
-  // რომელიც, interpolation-ის {{}} მეშვეობით აისახება view-ში.
   disagree() {
-    this.disagreedSumNum++;
+    this.disagreedTotalNumber++;
+    this.isUsersEmpty();
+  }
+
+  getUsersTotalNumber(): void {
+    for (let item of this.users) {
+      this.usersTotalNumber++;
+    }
+  }
+
+  isUsersEmpty(): void {
+    if (this.usersTotalNumber > 0) {
+      this.usersTotalNumber--;
+      if (this.usersTotalNumber == 0) {
+        console.log('Submitting is over!')
+        this.submittingDone.emit();
+      } else {
+        //
+      }
+    } else {
+      //
+    }
   }
 }
