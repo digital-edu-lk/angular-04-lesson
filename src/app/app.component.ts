@@ -9,7 +9,7 @@ export class AppComponent {
 
   isSubmittingOver: boolean = false;
   
-  submited() {
+  submited(): void {
     this.isSubmittingOver = true;
   }
 }
